@@ -29,16 +29,38 @@
     <div class="card-header">
       <ul class="nav nav-pills card-header-pills">
         <li class="nav-item">
-          <a class="nav-link" [class.active]="isActive" href="#" (click)="onClick($event)"> Card1 </a>
+          <a class="nav-link" data-toggle="tab" href="#menu5" (click)="onClick($event)"> Card1 </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" (click)="onClick($event)">Card2</a>
+          <a class="nav-link" data-toggle="tab" href="#menu6" (click)="onClick($event)">Card2</a>
         </li>
       </ul>
     </div>
     <div class="card-body">
-        <app-card1></app-card1>
-        <app-card2></app-card2>
+      <div class="tab-content">
+        <div id="menu5" class="tab-pane fade in active">
+          <app-card1></app-card1>
+        </div>
+        <div id="menu6" class="tab-pane fade">
+          <app-card2></app-card2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <a data-toggle="tab" href="#menu1">Menu 1</a>
+  <a data-toggle="tab" href="#menu2">Menu 2</a>
+  <a data-toggle="tab" href="#menu3">Menu 3</a>
+  <div class="tab-content">
+    <div id="menu1" class="tab-pane">
+      1
+    </div>
+    <div id="menu2" class="tab-pane">
+      2
+    </div>
+    <div id="menu3" class="tab-pane">
+      3
     </div>
   </div>
 

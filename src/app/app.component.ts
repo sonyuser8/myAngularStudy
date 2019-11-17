@@ -11,24 +11,21 @@ declare let tool2: any;
 })
 export class AppComponent {
   title = 'test2019111601';
+  mySelection = "";
   isActive = false;
-  mySelection="";
 
-  callType(val:any)  {
+  callType(val: any) {
     this.mySelection = val;
     console.log('AAAA');
     console.log(val);
   }
 
-  onClick(){
+  onClick($event) {
     // HTMLAnchorElement
-    console.log("AAA");
-    this.isActive = !this.isActive;
-    // HTMLElement el = document.getElementById('content');
-
-    // let target = event.target;
-    // HTMLLinkElement target2 = event.target as HTMLLinkElement;
-    // console.log(target);
+    let target: HTMLAnchorElement = $event.target as HTMLAnchorElement;
+    // document.getElementsByClassName('nav-item');
+    // target.className += " active";
+    // console.log(document.getElementsByClassName('nav-item').length);
   }
 
   onClickMe() {
@@ -50,7 +47,7 @@ export class AppComponent {
         price: '$1'
       }
     ];
-    $table.bootstrapTable({ data:data });
+    $table.bootstrapTable({ data: data });
     // tool.tool1();
     tool1();
     tool2();
