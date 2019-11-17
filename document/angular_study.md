@@ -1,17 +1,17 @@
 # Commands
 ng new test2019111601 --skip-install # create project structure but not install node_modules
 npm install  # install modules in dependencies & devDependencies
-
 npm install –production  - install dependencies
 
-# Generate New Component
-ng generate component
-
+### Generate New Component
+ng generate component AAA
+### Generate New Service
+ng generate service SSS
 
 # Some files need to study
-package.json
-tsconfig.json
-angular.json (or angular-cli.json)
+* package.json
+* tsconfig.json
+* angular.json (or angular-cli.json) - <b>to include global .js/css <b>
 
 # Routing
 1. Configure the routes (app.module.ts)
@@ -25,3 +25,4 @@ angular.json (or angular-cli.json)
 # Practicce
 1. By options to show different form
 2. Http Service including error handling
+3. Form Submit test ( Should I use angular form?)
