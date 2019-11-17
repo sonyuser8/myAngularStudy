@@ -21,6 +21,12 @@ export class AppComponent {
     console.log(val);
   }
 
+  typeAssertion() {
+    let message;
+    message = 'abc';
+    (message as string).startsWith('a');
+  }
+
   testMe() {
     let list = document.getElementsByClassName('test');
     for (var i = 0; i < list.length; i++) {
