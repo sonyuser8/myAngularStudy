@@ -20,6 +20,12 @@ export class AppComponent {
     console.log(val);
   }
 
+  onClick(event){
+    // let target = event.target;
+    // HTMLLinkElement target2 = event.target as HTMLLinkElement;
+    // console.log(target);
+  }
+
   onClickMe() {
     alert('fuck');
     console.log('TEST');
