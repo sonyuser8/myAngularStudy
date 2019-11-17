@@ -26,3 +26,5 @@ ng generate service SSS
 1. By options to show different form
 2. Http Service including error handling
 3. Form Submit test ( Should I use angular form?)
+4. 按了某個元素之後, 如何引響其他元素? 而非只侷限在自己
+5. child component如何改變 parent component的view

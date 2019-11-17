@@ -29,25 +29,29 @@
     <div class="card-header">
       <ul class="nav nav-pills card-header-pills">
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#menu5" (click)="onClick($event)"> Card1 </a>
+          <a class="nav-link active" data-toggle="tab" href="#menu5" (click)="onClick($event)"> Card1 </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#menu6" (click)="onClick($event)">Card2</a>
+          <a id="idCard2" class="nav-link" data-toggle="tab" href="#menu6" (click)="onClick($event)">Card2</a>
         </li>
       </ul>
     </div>
     <div class="card-body">
       <div class="tab-content">
-        <div id="menu5" class="tab-pane fade in active">
-          <app-card1></app-card1>
+        <div id="menu5" class="tab-pane active">
+          <select class="custom-select" #t2 (change)="changeDeployType(t2.value)">
+              <option selected>Choose...</option>
+              <option value="cronjob">cronjob</option>
+              <option value="jboss">jboss</option>
+          </select>
         </div>
-        <div id="menu6" class="tab-pane fade">
-          <app-card2></app-card2>
+        <div id="menu6" class="tab-pane">
+          <app-card1 *ngIf="deployType=='cronjob'"></app-card1>
+          <app-card2 *ngIf="deployType=='jboss'"></app-card2>
         </div>
       </div>
     </div>
   </div>
-
 
   <a data-toggle="tab" href="#menu1">Menu 1</a>
   <a data-toggle="tab" href="#menu2">Menu 2</a>

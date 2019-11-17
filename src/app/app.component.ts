@@ -11,7 +11,8 @@ declare let tool2: any;
 })
 export class AppComponent {
   title = 'test2019111601';
-  mySelection = "";
+  mySelection: string = "";
+  deployType: string = "";
   isActive = false;
 
   callType(val: any) {
@@ -53,5 +54,10 @@ export class AppComponent {
     tool2();
     tool.tool1_module();
     tool.tool2_module();
+  }
+
+  changeDeployType(value: string) {
+    this.deployType = value;
+    console.log(this.deployType);
   }
 }
