@@ -1,0 +1,31 @@
+<div class="container">
+
+  <div class="alert alert-primary" role="alert">
+    A simple primary alert—check it out!
+  </div>
+
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    You should check in on some of those fields below.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <button (click)="onClickMe()">Test</button>
+
+  <div class="myTest">
+    AAA
+  </div>
+
+  <button (click)="onClickTbl()">Test</button>
+  <table id="table" data-filter-control="true">
+    <thead>
+      <tr>
+        <th data-field="id" data-filter-control="input">ID</th>
+        <th data-field="name">Item Name</th>
+        <th data-field="price">Item Price</th>
+      </tr>
+    </thead>
+  </table>
+
+</div>
