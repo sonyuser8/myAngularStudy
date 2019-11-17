@@ -10,7 +10,7 @@ declare let tool2: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'test2019111601';
+  title: string = 'test2019111601';
   mySelection: string = "";
   deployType: string = "";
   isActive = false;
@@ -19,6 +19,13 @@ export class AppComponent {
     this.mySelection = val;
     console.log('AAAA');
     console.log(val);
+  }
+
+  testMe() {
+    let list = document.getElementsByClassName('test');
+    for (var i = 0; i < list.length; i++) {
+      console.log(list[i]); //second console output
+    }
   }
 
   onClick($event) {
@@ -30,6 +37,9 @@ export class AppComponent {
   }
 
   onClickMe() {
+    let msg = 'abc';
+    // HTMLCollection
+
     alert('fuck');
     console.log('TEST');
     $('.myTest').html('BBBB');
@@ -58,6 +68,8 @@ export class AppComponent {
 
   changeDeployType(value: string) {
     this.deployType = value;
-    console.log(this.deployType);
+    let tmp = document.getElementById('idCard2') as HTMLAnchorElement;
+    tmp.innerHTML = this.deployType.toUpperCase();
+    // console.log(this.deployType);
   }
 }
