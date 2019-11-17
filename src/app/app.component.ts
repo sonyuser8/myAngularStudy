@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import * as tool from '../../lib/tool_module.js';
-// import * as tool from ''
 declare let $: any;
 declare let tool1: any;
 declare let tool2: any;
@@ -12,6 +11,7 @@ declare let tool2: any;
 })
 export class AppComponent {
   title = 'test2019111601';
+  isActive = false;
   mySelection="";
 
   callType(val:any)  {
@@ -20,7 +20,12 @@ export class AppComponent {
     console.log(val);
   }
 
-  onClick(event){
+  onClick(){
+    // HTMLAnchorElement
+    console.log("AAA");
+    this.isActive = !this.isActive;
+    // HTMLElement el = document.getElementById('content');
+
     // let target = event.target;
     // HTMLLinkElement target2 = event.target as HTMLLinkElement;
     // console.log(target);
