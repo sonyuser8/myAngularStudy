@@ -8,9 +8,18 @@ import { FormGroup, FormControl} from '@angular/forms';
 })
 export class FormTestComponent implements OnInit {
 
+  form = new FormGroup({
+    site: new FormControl(),
+    zone: new FormControl(),
+    location: new FormControl()
+  });
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onClick(){
+    console.log(this.form.get('site').value);
   }
 
 }
