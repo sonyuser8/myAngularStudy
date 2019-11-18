@@ -1,20 +1,25 @@
 <p>form-test works!</p>
 
-<form>
+<form [formGroup]="form">
   <div class="form-group form-inline">
     <label class="control-label" for="site">site:</label>
-    <input type="text" class="form-control">
+    <input formControlName="site" type="text" class="form-control">
   </div>
 
   <div class="form-group form-inline">
     <label class="control-label" for="zone">zone:</label>
-    <input type="text" class="form-control">
+    <input formControlName="zone"
+        type="text" class="form-control">
   </div>
 
-  <div class="form-group form-inline">
-    <label class="control-label" for="location">location:</label>
-    <input type="text" class="form-control">
+  <div *ngFor="let host of this.form.get('hosts').controls">
+    {{host.get('location').value}}
+    <br>
+    {{host.get('name').value}}
   </div>
+
+
+  <button class="btn btn-primary" (click)="onClick()">Add Host</button>
 </form>
 
 <ul class="nav">

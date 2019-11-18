@@ -36,12 +36,19 @@ export class FormTestComponent implements OnInit {
     // (this.form.get('hosts') as FormArray).controls
 
     // tslint:disable-next-line: forin
-    for (const control in (this.form.get('hosts') as FormArray).controls) {
-      const host = (this.form.get('hosts') as FormArray).get(control);
-      console.log(host);
-      console.log(host.get('location').value);
-      console.log(host.get('name').value);
+    // for (const control in (this.form.get('hosts') as FormArray).controls) {
+    //   const host = (this.form.get('hosts') as FormArray).get(control);
+    //   console.log(host);
+    //   console.log(host.get('location').value);
+    //   console.log(host.get('name').value);
+    // }
+
+    for (let item of (this.form.get('hosts') as FormArray).controls ) {
+      console.log(item);
+      console.log(item.get('location').value);
+      console.log(item.get('name').value);
     }
+
   }
 }
 
