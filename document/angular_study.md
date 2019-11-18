@@ -1,3 +1,7 @@
+# nested router link
+* google keyword:angular routerlink nested
+* https://www.tektutorialshub.com/angular/angular-child-routes-nested-routes/
+
 # Commands
 ng new test2019111601 --skip-install # create project structure but not install node_modules
 npm install  # install modules in dependencies & devDependencies

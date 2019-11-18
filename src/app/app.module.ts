@@ -11,6 +11,7 @@ import { FollowerComponent } from './follower/follower.component';
 import { Card1Component } from './card1/card1.component';
 import { Card2Component } from './card2/card2.component';
 import { TestComponent } from './tests/test/test.component';
+import { FormTestComponent } from './tests/form-test/form-test.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TestComponent } from './tests/test/test.component';
     FollowerComponent,
     Card1Component,
     Card2Component,
-    TestComponent
+    TestComponent,
+    FormTestComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -31,6 +33,10 @@ import { TestComponent } from './tests/test/test.component';
       {
         path: '',
         component: HomeComponent
+      },
+      {
+        path: 'formtest',
+        component: FormTestComponent
       },
       {
         path: 'test',
