@@ -12,6 +12,8 @@ import { Card1Component } from './card1/card1.component';
 import { Card2Component } from './card2/card2.component';
 import { TestComponent } from './tests/test/test.component';
 import { FormTestComponent } from './tests/form-test/form-test.component';
+import { FormTestDetailComponent } from './tests/form-test-detail/form-test-detail.component';
+import { FormTestDetail2Component } from './tests/form-test-detail2/form-test-detail2.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { FormTestComponent } from './tests/form-test/form-test.component';
     Card1Component,
     Card2Component,
     TestComponent,
-    FormTestComponent
+    FormTestComponent,
+    FormTestDetailComponent,
+    FormTestDetail2Component
   ],
   imports: [
     ReactiveFormsModule,
@@ -36,7 +40,11 @@ import { FormTestComponent } from './tests/form-test/form-test.component';
       },
       {
         path: 'formtest',
-        component: FormTestComponent
+        component: FormTestComponent,
+        children: [
+          { path: 'detail', component: FormTestDetailComponent },
+          { path: 'detail2', component: FormTestDetail2Component }
+        ]
       },
       {
         path: 'test',
