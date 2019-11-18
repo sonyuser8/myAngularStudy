@@ -8,14 +8,16 @@
 
   <div class="form-group form-inline">
     <label class="control-label" for="zone">zone:</label>
-    <input formControlName="zone"
-        type="text" class="form-control">
+    <input formControlName="zone" type="text" class="form-control">
   </div>
 
-  <div *ngFor="let host of this.form.get('hosts').controls">
-    {{host.get('location').value}}
-    <br>
-    {{host.get('name').value}}
+  <div formArrayName="hosts" *ngFor="let host of this.form.get('hosts').controls; let i = index;">
+    <div [formGroupName]="i">
+      <div  class="form-group form-inline">
+        <input formControlName="location" type="text" class="form-control" placeholder="location">
+        <input formControlName="name"     type="text" class="form-control" placeholder="name">
+      </div>
+    </div>
   </div>
 
 

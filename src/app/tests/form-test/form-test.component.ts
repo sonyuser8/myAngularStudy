@@ -43,8 +43,8 @@ export class FormTestComponent implements OnInit {
     //   console.log(host.get('name').value);
     // }
 
-    for (let item of (this.form.get('hosts') as FormArray).controls ) {
-      console.log(item);
+    for (let item of (this.form.get('hosts') as FormArray).controls) {
+      // console.log(item);
       console.log(item.get('location').value);
       console.log(item.get('name').value);
     }
