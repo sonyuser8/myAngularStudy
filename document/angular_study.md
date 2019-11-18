@@ -3,6 +3,8 @@ ng new test2019111601 --skip-install # create project structure but not install 
 npm install  # install modules in dependencies & devDependencies
 npm install –production  - install dependencies
 
+### routerLink 可以用在任何 HTMLELEMENT 上
+
 ### Generate New Component
 ng generate component AAA
 ### Generate New Service
@@ -24,8 +26,9 @@ ng generate service SSS
 
 # Practicce
 1. By options to show different form
-2. Http Service including error handling
-3. Form Submit test ( Should I use angular form?)
 
-4. 按了某個元素之後, 如何引響其他元素? 而非只侷限在自己
-5. child component如何改變 parent component的view
+2. Form Submit test ( Should I use angular form?)
+3. Manage data (Build re-usable component)
+4. Http Service including error handling
+----------
+6. child component如何改變 parent component的view

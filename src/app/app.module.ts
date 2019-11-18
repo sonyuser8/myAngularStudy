@@ -10,6 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FollowerComponent } from './follower/follower.component';
 import { Card1Component } from './card1/card1.component';
 import { Card2Component } from './card2/card2.component';
+import { TestComponent } from './tests/test/test.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { Card2Component } from './card2/card2.component';
     NotFoundComponent,
     FollowerComponent,
     Card1Component,
-    Card2Component
+    Card2Component,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,10 @@ import { Card2Component } from './card2/card2.component';
       {
         path: '',
         component: HomeComponent
+      },
+      {
+        path: 'test',
+        component: TestComponent
       },
       {
         path: 'followers',
