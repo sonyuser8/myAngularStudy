@@ -13,4 +13,10 @@ export class HomeComponent implements OnInit {
   }
   fruits: string[] = ['Apple', 'Orange', 'Banana'];
 
+  remove(item: string) {
+    console.log(this.fruits.indexOf(item));
+    const index: number = this.fruits.indexOf(item);
+    this.fruits.splice(index, 1);
+  }
+
 }

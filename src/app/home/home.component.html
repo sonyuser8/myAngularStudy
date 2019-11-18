@@ -5,5 +5,5 @@
 </div>
 
 <div class="alert alert-danger" *ngFor="let item of fruits">
-  {{item}}
+  {{item}} <button (click)="remove(item)"> Remove</button>
 </div>
