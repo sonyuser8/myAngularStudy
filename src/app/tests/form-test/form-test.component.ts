@@ -23,8 +23,8 @@ export class FormTestComponent implements OnInit {
     this.index++;
     (this.form.get('hosts') as FormArray).push(
       new FormGroup({
-        location: new FormControl(this.index.toString()),
-        name: new FormControl(this.index.toString())
+        location: new FormControl(''),
+        name: new FormControl('')
       })
     );
     // new Form
@@ -49,6 +49,12 @@ export class FormTestComponent implements OnInit {
       console.log(item.get('name').value);
     }
 
+  }
+
+  onSubmit() {
+    let result = this.form.value;
+    console.log(result);
+    console.log(JSON.stringify(result));
   }
 }
 
