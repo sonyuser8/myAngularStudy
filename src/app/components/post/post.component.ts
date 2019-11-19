@@ -19,4 +19,8 @@ export class PostComponent implements OnInit {
   ngOnInit() {
   }
 
+  createPost(title: HTMLInputElement ){
+    console.log(title.value);
+  }
+
 }
