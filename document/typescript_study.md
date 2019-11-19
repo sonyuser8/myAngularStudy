@@ -1,4 +1,11 @@
-# Question: How to import HtmlElement
+# Code Tips
+````typescript
+// Add object on top of array
+posts.splice(0,0,post);
+// Delete Specific Object
+const index: number = this.fruits.indexOf(item);
+this.fruits.splice(index, 1);
+````    
 
 # Import JQUERY - refer to https://ithelp.ithome.com.tw/articles/10190065
 index.html
