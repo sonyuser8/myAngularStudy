@@ -12,6 +12,18 @@
   </div>
 
   <div class="form-group form-inline">
+      <label class="control-label" for="compartment">compartment:</label>
+      <!-- <input formControlName="compartment" type="text" class="form-control"> -->
+      <select class="form-control" formControlName="compartment">
+          <option>AP1</option>
+          <option>AP2</option>
+          <option>AP3</option>
+          <option>AP4</option>
+          <option>AP5</option>
+        </select>
+    </div>
+
+  <div class="form-group form-inline">
     <button class="btn btn-primary" (click)="onClick()">Add Host</button>
   </div>
 

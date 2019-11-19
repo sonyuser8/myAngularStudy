@@ -11,6 +11,7 @@ export class FormTestComponent implements OnInit {
 
   form = new FormGroup({
     site: new FormControl(),
+    compartment: new FormControl(),
     zone: new FormControl(),
     hosts: new FormArray([])
     // location: new FormControl(),
@@ -27,7 +28,7 @@ export class FormTestComponent implements OnInit {
         name: new FormControl('')
       })
     );
-    // new Form
+    // New Form
     console.log(this.form.get('site').value);
     console.log(this.form.get('zone').value);
 
