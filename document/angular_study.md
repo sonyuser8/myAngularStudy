@@ -36,7 +36,7 @@ ng generate service SSS
 2. Form Submit test ( Should I use angular form?)
 3. Manage data (Build re-usable component)
 4. Http Service including error handling
-http://jsonplaceholder.typicode.com/
+http://jsonplaceholder.typicode.com/posts
 
 
 

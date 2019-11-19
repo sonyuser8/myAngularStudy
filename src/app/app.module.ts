@@ -15,6 +15,7 @@ import { TestComponent } from './tests/test/test.component';
 import { FormTestComponent } from './tests/form-test/form-test.component';
 import { FormTestDetailComponent } from './tests/form-test-detail/form-test-detail.component';
 import { FormTestDetail2Component } from './tests/form-test-detail2/form-test-detail2.component';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FormTestDetail2Component } from './tests/form-test-detail2/form-test-de
     TestComponent,
     FormTestComponent,
     FormTestDetailComponent,
-    FormTestDetail2Component
+    FormTestDetail2Component,
+    PostComponent
   ],
   imports: [
     ReactiveFormsModule,
