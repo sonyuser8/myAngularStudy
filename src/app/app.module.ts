@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -32,6 +33,7 @@ import { FormTestDetail2Component } from './tests/form-test-detail2/form-test-de
   imports: [
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     BrowserModule,
     RouterModule.forRoot([
       {
