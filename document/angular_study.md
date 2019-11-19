@@ -17,7 +17,7 @@ ng generate service SSS
 # Some files need to study
 * package.json
 * tsconfig.json
-* angular.json (or angular-cli.json) - <b>to include global .js/css <b>
+* angular.json (or angular-cli.json) - <b>to include global .js/css </b>
 
 # Routing
 1. Configure the routes (app.module.ts)
@@ -26,13 +26,18 @@ ng generate service SSS
 2. Add a router outlet (app.component.html)
     <router-outlet></router-outlet>
 3. Add links (app.component.html or anything else) 
-    <a class="nav-link" routerLink="/followers">Followers</a>
+    <a class="nav-link" routerLinkActive="active" routerLink="/followers" [routerLinkOptions]="{exact:true}">Followers</a>
 
 # Practicce
+0. <b style="color:gray">fakeLoader 搭配最新的 jquery or Angular => spinkit css library</b>
+
 1. By options to show different form
 
 2. Form Submit test ( Should I use angular form?)
 3. Manage data (Build re-usable component)
 4. Http Service including error handling
-----------
-6. child component如何改變 parent component的view
+http://jsonplaceholder.typicode.com/
+
+
+
+5. child component如何改變 parent component的view
