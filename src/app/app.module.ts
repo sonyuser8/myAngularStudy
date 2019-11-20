@@ -17,6 +17,9 @@ import { FormTestComponent } from './tests/form-test/form-test.component';
 import { FormTestDetailComponent } from './tests/form-test-detail/form-test-detail.component';
 import { FormTestDetail2Component } from './tests/form-test-detail2/form-test-detail2.component';
 import { PostComponent } from './components/post/post.component';
+import { Sibling1Component } from './sharedata/sibling1/sibling1.component';
+import { Sibling2Component } from './sharedata/sibling2/sibling2.component';
+import { ParentComponent } from './sharedata/parent/parent.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { PostComponent } from './components/post/post.component';
     FormTestComponent,
     FormTestDetailComponent,
     FormTestDetail2Component,
-    PostComponent
+    PostComponent,
+    Sibling1Component,
+    Sibling2Component,
+    ParentComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -58,6 +64,10 @@ import { PostComponent } from './components/post/post.component';
       {
         path: 'followers',
         component: FollowerComponent
+      },
+      {
+        path: 'sharedata',
+        component: ParentComponent
       },
       {
         path: 'profile/:username',
