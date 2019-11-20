@@ -1,1 +1,12 @@
 <p>validator-test works!</p>
+
+<form [formGroup]="form">
+  <div class="form-group">
+    <input
+        formControlName="username"
+        type="text"
+        class='form-control'
+        #tUserName
+        (keyup.enter)="onEnter(tUserName)">
+  </div>
+</form>

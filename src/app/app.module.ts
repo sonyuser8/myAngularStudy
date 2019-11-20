@@ -60,6 +60,10 @@ import { ValidatorTestComponent } from './form/validator-test/validator-test.com
         ]
       },
       {
+        path: 'posttest',
+        component: PostComponent
+      },
+      {
         path: 'test',
         component: TestComponent
       },

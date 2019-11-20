@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms'
 
 @Component({
   selector: 'app-validator-test',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./validator-test.component.css']
 })
 export class ValidatorTestComponent implements OnInit {
-
+  form = new FormGroup({
+    username: new FormControl()
+  })
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onEnter(username: HTMLInputElement) {
+    console.log(username.value);
   }
 
 }
