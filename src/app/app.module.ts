@@ -20,6 +20,7 @@ import { PostComponent } from './components/post/post.component';
 import { Sibling1Component } from './sharedata/sibling1/sibling1.component';
 import { Sibling2Component } from './sharedata/sibling2/sibling2.component';
 import { ParentComponent } from './sharedata/parent/parent.component';
+import { ValidatorTestComponent } from './form/validator-test/validator-test.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ParentComponent } from './sharedata/parent/parent.component';
     PostComponent,
     Sibling1Component,
     Sibling2Component,
-    ParentComponent
+    ParentComponent,
+    ValidatorTestComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -64,6 +66,10 @@ import { ParentComponent } from './sharedata/parent/parent.component';
       {
         path: 'followers',
         component: FollowerComponent
+      },
+      {
+        path: 'form-validator',
+        component: ValidatorTestComponent
       },
       {
         path: 'sharedata',

@@ -8,12 +8,11 @@ import { SiblingDataService } from '../sibling-data.service';
 })
 export class Sibling1Component implements OnInit {
 
+  testStr: string;
   constructor(private data: SiblingDataService) {
-
   }
-
   ngOnInit() {
     console.log(this.data.myKeyMessage);
+    this.testStr = this.data.myKeyMessage;
   }
-
 }
