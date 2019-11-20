@@ -12,6 +12,7 @@ export class AppComponent {
   title: string = 'test2019111601';
 
   test() {
+    AppConst.myFisrStatic();
     let state = new AppConst(1);
     // console.log(CFG.cfg1);
     console.log('before:' + state.count);
