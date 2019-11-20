@@ -20,6 +20,7 @@ export class AppComponent {
   }
 
   increment(state: AppConst): AppConst {
+    //tassign should be used, to prevent new property. Check redux - 08
     let NewObject = Object.assign({}, state, { count: state.count + 1 });
     // let NewObject = Object.assign({}, state, { });
     console.log(NewObject);
