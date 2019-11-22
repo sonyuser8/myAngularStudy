@@ -1,4 +1,4 @@
-<p>validator-test works!</p>
+<p>This is component validator-test</p>
 
 <form [formGroup]="form">
   <div class="form-group">
@@ -8,5 +8,12 @@
         class='form-control'
         #tUserName
         (keyup.enter)="onEnter(tUserName)">
+      <div *ngIf="username.touched && username.invalid"
+      class="alert alert-danger">
+        <div *ngIf="username.errors.required">Username is required</div>
+        <!-- <div *ngIf="username.errors.minlength">Min length violation</div> -->
+      </div>
+
+      <button (click)="onClick()">Submit</button>
   </div>
 </form>

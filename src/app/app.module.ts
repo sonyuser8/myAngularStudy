@@ -21,6 +21,8 @@ import { Sibling1Component } from './sharedata/sibling1/sibling1.component';
 import { Sibling2Component } from './sharedata/sibling2/sibling2.component';
 import { ParentComponent } from './sharedata/parent/parent.component';
 import { ValidatorTestComponent } from './form/validator-test/validator-test.component';
+import { PropsBindComponent } from './demo/props-bind/props-bind.component';
+import { RxjsDemoComponent } from './demo/rxjs-demo/rxjs-demo.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { ValidatorTestComponent } from './form/validator-test/validator-test.com
     Sibling1Component,
     Sibling2Component,
     ParentComponent,
-    ValidatorTestComponent
+    ValidatorTestComponent,
+    PropsBindComponent,
+    RxjsDemoComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -72,8 +76,16 @@ import { ValidatorTestComponent } from './form/validator-test/validator-test.com
         component: FollowerComponent
       },
       {
+        path: 'rxjs-demo',
+        component: RxjsDemoComponent
+      },
+      {
         path: 'form-validator',
         component: ValidatorTestComponent
+      },
+      {
+        path: 'demo-property-binding',
+        component: PropsBindComponent
       },
       {
         path: 'sharedata',

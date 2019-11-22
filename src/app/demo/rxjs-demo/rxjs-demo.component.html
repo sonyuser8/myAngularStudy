@@ -1,0 +1,25 @@
+<p>rxjs-demo works!</p>
+
+<button (click)="onClick()">Click</button>
+<!-- {{ JSON.stringify(obj) }} -->
+<!-- {{ data$|async }} -->
+
+<div *ngIf="data$|async as data else elseTmpl">
+    <ul>
+      <li *ngFor="let item of data">
+          {{item.title}}
+      </li>
+    </ul>
+</div>
+<ng-template #elseTmpl>
+  <div>
+      loading ...
+  </div>
+</ng-template>
+<br>
+
+<!-- <ul>
+  <li *ngFor="let data of  data$|async"  >
+    {{ jsonToStr(data) }}
+  </li>
+</ul> -->
