@@ -1,9 +1,14 @@
 <p>form-test works!</p>
 
+<button (click)="onTest()">OnTest</button>
+
 <form [formGroup]="form">
   <div class="form-group form-inline">
     <label class="control-label" for="site">site:</label>
     <input formControlName="site" type="text" class="form-control">
+  </div>
+  <div *ngIf="site.touched" class="alert alert-danger" role="alert">
+    Show error message
   </div>
 
   <div class="form-group form-inline">
@@ -12,16 +17,16 @@
   </div>
 
   <div class="form-group form-inline">
-      <label class="control-label" for="compartment">compartment:</label>
-      <!-- <input formControlName="compartment" type="text" class="form-control"> -->
-      <select class="form-control" formControlName="compartment">
-          <option>AP1</option>
-          <option>AP2</option>
-          <option>AP3</option>
-          <option>AP4</option>
-          <option>AP5</option>
-        </select>
-    </div>
+    <label class="control-label" for="compartment">compartment:</label>
+    <!-- <input formControlName="compartment" type="text" class="form-control"> -->
+    <select class="form-control" formControlName="compartment">
+      <option>AP1</option>
+      <option>AP2</option>
+      <option>AP3</option>
+      <option>AP4</option>
+      <option>AP5</option>
+    </select>
+  </div>
 
   <div class="form-group form-inline">
     <button class="btn btn-primary" (click)="onClick()">Add Host</button>
@@ -31,6 +36,9 @@
     <div [formGroupName]="i">
       <div class="form-group form-inline">
         <input formControlName="location" type="text" class="form-control" placeholder="location">
+          <div *ngIf="this.form.get('hosts').controls[i].get('location').touched" class="alert alert-danger" role="alert">
+            Show error message
+          </div>
         <input formControlName="name" type="text" class="form-control" placeholder="name">
       </div>
     </div>

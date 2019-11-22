@@ -10,7 +10,7 @@
         (keyup.enter)="onEnter(tUserName)">
       <div *ngIf="username.touched && username.invalid"
       class="alert alert-danger">
-        <div *ngIf="username.errors.required">Username is required</div>
+        <div *ngIf="username.touched">Username is required</div>
         <!-- <div *ngIf="username.errors.minlength">Min length violation</div> -->
       </div>
 
