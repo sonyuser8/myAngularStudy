@@ -1,19 +1,24 @@
 <p>rxjs-demo works!</p>
 
 <button (click)="onClick()">Click</button>
+
+<div *ngIf="data$|async as data">
+  {{ data[0].title }}
+</div>
 <!-- {{ JSON.stringify(obj) }} -->
-<!-- {{ data$|async }} -->
+
+<!-- {{ (data2$|async) }} -->
 
 <div *ngIf="data$|async as data else elseTmpl">
-    <ul>
-      <li *ngFor="let item of data">
-          {{item.title}}
-      </li>
-    </ul>
+  <ul>
+    <li *ngFor="let item of data">
+      {{item.title}}
+    </li>
+  </ul>
 </div>
 <ng-template #elseTmpl>
   <div>
-      loading ...
+    loading ...
   </div>
 </ng-template>
 <br>

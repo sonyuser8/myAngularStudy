@@ -1,4 +1,4 @@
-import { map } from 'rxjs/operators';
+import { map, reduce, merge, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -12,6 +12,7 @@ import { async } from 'rxjs/internal/scheduler/async';
 export class RxjsDemoComponent implements OnInit {
   url: string = 'http://jsonplaceholder.typicode.com/posts';
   data$: Observable<any[]>;
+  data2$: Observable<any[]>;
   testBool: boolean = false;
 
   constructor(private http: HttpClient) { }
@@ -20,8 +21,7 @@ export class RxjsDemoComponent implements OnInit {
     this.data$ = this.http.get<any[]>(this.url).pipe(
       map(res => {
         return res;
-      })
-    );
+      }));
   }
 
   onClick() {
@@ -31,7 +31,7 @@ export class RxjsDemoComponent implements OnInit {
     return JSON.stringify(obj);
   }
 
-  toggle(){
+  toggle() {
     this.testBool = !this.testBool;
   }
 
