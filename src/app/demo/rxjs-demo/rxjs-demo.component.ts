@@ -1,4 +1,4 @@
-import { map, reduce, merge, catchError } from 'rxjs/operators';
+import { map, reduce, merge, catchError, retry } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -20,6 +20,7 @@ export class RxjsDemoComponent implements OnInit {
   ngOnInit() {
     // below code works!
     this.data2$ = this.http.get<any[]>(this.url).pipe(
+      retry(3),
       map(res => {
         return res;
       }));

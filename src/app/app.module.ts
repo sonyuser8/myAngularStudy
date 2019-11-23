@@ -24,6 +24,7 @@ import { ValidatorTestComponent } from './form/validator-test/validator-test.com
 import { PropsBindComponent } from './demo/props-bind/props-bind.component';
 import { RxjsDemoComponent } from './demo/rxjs-demo/rxjs-demo.component';
 import { FormStudyComponent } from './demo/form-study/form-study.component';
+import { ObjToStrPipe } from './pipe/obj-to-str.pipe';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { FormStudyComponent } from './demo/form-study/form-study.component';
     ValidatorTestComponent,
     PropsBindComponent,
     RxjsDemoComponent,
-    FormStudyComponent
+    FormStudyComponent,
+    ObjToStrPipe
   ],
   imports: [
     ReactiveFormsModule,

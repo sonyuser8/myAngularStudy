@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormControl } from '@angular/forms';
+import { Util } from '../../util/util';
+import { ObjToStrPipe }  from '../../pipe/obj-to-str.pipe';
 
 @Component({
   selector: 'app-form-study',
@@ -7,15 +10,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./form-study.component.css']
 })
 export class FormStudyComponent implements OnInit {
-
+  name = new FormControl('');
   constructor(private http: HttpClient) { }
-  fab: string = '';
   ngOnInit() {
-    this.http.get('http://jsonplaceholder.typicode.com/posts',{responseType: 'text'}).subscribe(
-      resp => {
-        this.fab = 'test';
-      }
-    );
+
+  }
+
+  onClick() {
+    console.log(this.name);
+    console.log(this.name.value);
   }
 
 }
