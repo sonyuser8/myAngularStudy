@@ -18,13 +18,15 @@ export class RxjsDemoComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.data$ = this.http.get<any[]>(this.url).pipe(
+    // below code works!
+    this.data2$ = this.http.get<any[]>(this.url).pipe(
       map(res => {
         return res;
       }));
   }
 
   onClick() {
+    this.data$ = this.http.get<any[]>(this.url);
   }
 
   jsonToStr(obj: any) {

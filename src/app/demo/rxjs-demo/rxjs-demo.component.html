@@ -1,6 +1,6 @@
 <p>rxjs-demo works!</p>
 
-<button (click)="onClick()">Click</button>
+<button (click)="onClick()">Click to load data</button>
 
 <div *ngIf="data$|async as data">
   {{ data[0].title }}
@@ -22,6 +22,14 @@
   </div>
 </ng-template>
 <br>
+
+<div class="alert alert-primary" role="alert">
+  This is separation line
+</div>
+
+<li *ngFor="let item of data2$|async">
+  {{item.title}}
+</li>
 
 <!-- <ul>
   <li *ngFor="let data of  data$|async"  >
