@@ -16,8 +16,8 @@ import { ObjToStrPipe } from '../../pipe/obj-to-str.pipe';
 })
 export class FormStudyComponent implements OnInit {
 
-  phaseOptions$:Observable<string[]>;
-  locationOptions$:Observable<string[]>;
+  phaseOptions$: Observable<string[]>;
+  locationOptions$: Observable<string[]>;
 
   form = new FormGroup({
     fab: new FormControl(this.appConfig.fab, Validators.required),
@@ -30,9 +30,19 @@ export class FormStudyComponent implements OnInit {
   ngOnInit() {
     this.phaseOptions$ = this.http.get<string[]>("http://localhost:8080/getPhase");
   }
-  onPhaseChange() {
-    let phase = this.form.get('phase').value;
-    this.locationOptions$ = this.http.get<string[]>("http://localhost:8080/getLocation?phase="+phase);
+  onChange(el: HTMLElement) {
+    console.log(el.getAttribute('formcontrolname'));
+    let fieldName = el.getAttribute('formcontrolname') as string;
+    switch (fieldName) {
+      case 'phase': {
+        this.locationOptions$ = this.http.get<string[]>('http://localhost:8080/getLocation?phase=' + (el as HTMLSelectElement).value);
+        break;
+      }
+      default: {
+        //statements;
+        break;
+      }
+    }
   }
 
   showForm() {
