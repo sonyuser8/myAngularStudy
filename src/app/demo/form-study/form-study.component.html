@@ -1,5 +1,28 @@
 <p>form-study works!</p>
 
-<input type="text" [formControl]="fab">
-<button (click)='showTest()'>showTest</button>
+<form [formGroup]='form'>
+  FAB:
+  <input type="text" formControlName="fab">
+  <br>
+  Phase:
+  <select *ngIf="phaseOptions$ | async as options else elseTmpl" formControlName="phase"
+    (change)="onPhaseChange()">
+    <option *ngFor="let option of options" value="{{option}}">{{option}}</option>
+  </select>
+  <ng-template #elseTmpl>
+    <select disabled> </select>
+  </ng-template>
+  <br>
+  Location:
+  <select *ngIf="locationOptions$ | async as options else elseTmpl" formControlName="location"
+    (change)="onPhaseChange()">
+    <option *ngFor="let option of options" value="{{option}}">{{option}}</option>
+  </select>
+  <ng-template #elseTmpl>
+    <select disabled> </select>
+  </ng-template>
 
+</form>
+<br><br><br>
+FormValue:
+{{form.value | objToStr}}

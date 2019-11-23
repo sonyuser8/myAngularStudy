@@ -16,20 +16,26 @@ import { ObjToStrPipe } from '../../pipe/obj-to-str.pipe';
 })
 export class FormStudyComponent implements OnInit {
 
-  fab = new FormControl(this.appConfig.fab, Validators.required);
+  phaseOptions$:Observable<string[]>;
+  locationOptions$:Observable<string[]>;
 
-  profileForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
+  form = new FormGroup({
+    fab: new FormControl(this.appConfig.fab, Validators.required),
+    phase: new FormControl(''),
+    location: new FormControl(''),
   });
 
-  name = new FormControl(this.fab);
   constructor(private http: HttpClient, public appConfig: AppConfigService) {
   }
   ngOnInit() {
+    this.phaseOptions$ = this.http.get<string[]>("http://localhost:8080/getPhase");
+  }
+  onPhaseChange() {
+    let phase = this.form.get('phase').value;
+    this.locationOptions$ = this.http.get<string[]>("http://localhost:8080/getLocation?phase="+phase);
   }
 
-  showTest() {
-    console.log(this.fab.value);
+  showForm() {
+    console.log(this.form.value);
   }
 }
