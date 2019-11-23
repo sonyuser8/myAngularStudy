@@ -16,10 +16,7 @@ import { ObjToStrPipe } from '../../pipe/obj-to-str.pipe';
 })
 export class FormStudyComponent implements OnInit {
 
-  urlLocal = 'http://localhost:8080';
-  fab = '';
-
-  test = new FormControl('', Validators.required);
+  fab = new FormControl(this.appConfig.fab, Validators.required);
 
   profileForm = new FormGroup({
     firstName: new FormControl(''),
@@ -27,21 +24,12 @@ export class FormStudyComponent implements OnInit {
   });
 
   name = new FormControl(this.fab);
-  constructor(private http: HttpClient, private appConfig: AppConfigService) {
-    console.log('FormStudyComponent constructor entered!');
-    let obj = { fab: 'F14A', phase: 'P1' };
-    let cfg: Config = (obj as Config);
-    console.log(obj['fab']);
-    console.log(obj['phase']);
-    console.log(cfg.fab);
-    console.log(cfg.phase);
-    console.log('FormStudyComponent constructor EXIT!');
+  constructor(private http: HttpClient, public appConfig: AppConfigService) {
   }
   ngOnInit() {
-    this.test.setValue(this.appConfig.fab);
   }
 
   showTest() {
-    console.log(this.test.value);
+    console.log(this.fab.value);
   }
 }

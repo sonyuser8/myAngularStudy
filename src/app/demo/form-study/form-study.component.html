@@ -1,33 +1,5 @@
 <p>form-study works!</p>
 
-<input type="text" [formControl]="test">
+<input type="text" [formControl]="fab">
 <button (click)='showTest()'>showTest</button>
 
-<!-- <div *ngIf="test.errors.required" class="alert alert-danger" role="alert">
-    Error
-</div> -->
-
-<br>
-<br><br>
-
-<form >
-    firstName: <input type="text" >
-    lastName: <input type="text">
-</form>
-
-<div class="alert alert-danger" role="alert">
-    This is separation line
-</div>
-
-<br>
-<br>
-<br>
-<input type="text" [formControl]="name">
-<br>
-Log formControl:<br>
-<button (click)="onClick()">
-  Click
-</button>
-<br>
-
-<!-- {{ name | objToStr }} -->
