@@ -1,3 +1,4 @@
+import { AppConfigService } from './../../services/app-config.service';
 import { DataService } from '../../services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -25,13 +26,13 @@ export class FormStudyComponent implements OnInit {
   });
 
   name = new FormControl(this.fab);
-  constructor(private http: HttpClient, private data: DataService) {
+  constructor(private http: HttpClient, private appConfig: AppConfigService) {
     console.log('FormStudyComponent constructor entered!');
 
     console.log('FormStudyComponent constructor exit!');
   }
   ngOnInit() {
-    this.test.setValue(this.data.fab);
+    this.test.setValue(this.appConfig.fab);
   }
 
   showTest() {

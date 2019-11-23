@@ -1,7 +1,8 @@
+import { AppConfigService } from './services/app-config.service';
 import { AppErrorHandler } from './services/app-error-handler';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, APP_INITIALIZER } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -110,7 +111,8 @@ import { ObjToStrPipe } from './pipe/obj-to-str.pipe';
     ])
   ],
   providers: [
-    { provide: ErrorHandler, useClass:AppErrorHandler}
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+    { provide: APP_INITIALIZER, useFactory: (config: AppConfigService) => () => config.load(), deps: [AppConfigService], multi: true }
   ],
   bootstrap: [AppComponent]
 })
