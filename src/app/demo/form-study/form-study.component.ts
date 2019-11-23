@@ -4,7 +4,7 @@ import { DataService } from '../../services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Util } from '../../util/util';
 import { ObjToStrPipe } from '../../pipe/obj-to-str.pipe';
@@ -35,7 +35,13 @@ export class FormStudyComponent implements OnInit {
     let fieldName = el.getAttribute('formcontrolname') as string;
     switch (fieldName) {
       case 'phase': {
-        this.locationOptions$ = this.http.get<string[]>('http://localhost:8080/getLocation?phase=' + (el as HTMLSelectElement).value);
+        this.locationOptions$ = this.http.get<string[]>('http://localhost:8080/getLocation?phase=' + (el as HTMLSelectElement).value)
+        .pipe(
+          map( resp => {
+            this.form.get('location').setValue('');
+            return resp;
+          })
+        );
         break;
       }
       default: {
