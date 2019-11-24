@@ -32,26 +32,37 @@ export class FormStudyComponent implements OnInit {
   }
   onChange(el: HTMLElement) {
     console.log(el.getAttribute('formcontrolname'));
-    let fieldName = el.getAttribute('formcontrolname') as string;
+    const fieldName = el.getAttribute('formcontrolname') as string;
     switch (fieldName) {
       case 'phase': {
         this.locationOptions$ = this.http.get<string[]>('http://localhost:8080/getLocation?phase=' + (el as HTMLSelectElement).value)
-        .pipe(
-          map( resp => {
-            this.form.get('location').setValue('');
-            return resp;
-          })
-        );
+          .pipe(map(resp => {
+              console.log(resp);
+              // options's best pracive
+              this.form.get('location').setValue('');
+              return resp;
+            }));
         break;
       }
       default: {
-        //statements;
         break;
       }
     }
   }
 
+  clearOptionOfFormControl(resp) {
+    return resp;
+  }
+
   showForm() {
     console.log(this.form.value);
+  }
+
+  logIt(item: string) {
+    console.log(this.form.get(item));
+  }
+
+  changePhase() {
+    this.form.get('phase').setValue('P2');
   }
 }

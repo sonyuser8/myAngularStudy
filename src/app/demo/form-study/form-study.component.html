@@ -1,5 +1,6 @@
 <p>form-study works!</p>
 
+<!--options's best pracive-->
 <form [formGroup]='form'>
   FAB:
   <input type="text" formControlName="fab">
@@ -20,8 +21,11 @@
   <ng-template #elseTmpl>
     <select disabled> </select>
   </ng-template>
-
 </form>
-<br><br><br>
+<br><br>
 FormValue:
 {{form.value | objToStr}}
+<br>
+FormControl phase:
+<button (click)="logIt('phase')">logIt </button>
+<button (click)="changePhase()"> changePhase </button>

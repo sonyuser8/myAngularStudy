@@ -1,5 +1,5 @@
 
-export interface Config{
+export interface Config {
   fab: string;
-  phase: string
+  phase: string;
 }

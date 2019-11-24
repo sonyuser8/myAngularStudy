@@ -1,0 +1,21 @@
+<p>signup-form works!</p>
+
+<form [formGroup]="form">
+  username:<input type="text" formControlName="username">
+</form>
+
+<div *ngIf="username.touched">
+
+</div>
+
+<br>
+this.form.get('username').value:{{username.value}} <br>
+this.form.get('username').touched:{{username.touched}} <br>
+this.form.get('username').errors:{{username.errors | objToStr}} <br>
+
+
+
+<br>
+<button (click)="change()">Change</button>
+
+<button style='margin-left:10px;' (click)="log()">Log</button>

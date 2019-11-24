@@ -26,6 +26,7 @@ import { PropsBindComponent } from './demo/props-bind/props-bind.component';
 import { RxjsDemoComponent } from './demo/rxjs-demo/rxjs-demo.component';
 import { FormStudyComponent } from './demo/form-study/form-study.component';
 import { ObjToStrPipe } from './pipe/obj-to-str.pipe';
+import { SignupFormComponent } from './form/signup-form/signup-form.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ObjToStrPipe } from './pipe/obj-to-str.pipe';
     PropsBindComponent,
     RxjsDemoComponent,
     FormStudyComponent,
-    ObjToStrPipe
+    ObjToStrPipe,
+    SignupFormComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -63,6 +65,10 @@ import { ObjToStrPipe } from './pipe/obj-to-str.pipe';
       {
         path: 'formstudy',
         component: FormStudyComponent
+      },
+      {
+        path: 'signup-form',
+        component: SignupFormComponent
       },
       {
         path: 'formtest',
@@ -112,7 +118,7 @@ import { ObjToStrPipe } from './pipe/obj-to-str.pipe';
   ],
   providers: [
     { provide: ErrorHandler, useClass: AppErrorHandler },
-    { provide: APP_INITIALIZER, useFactory: (config: AppConfigService) => () => config.load(), deps: [AppConfigService], multi: true }
+    // { provide: APP_INITIALIZER, useFactory: (config: AppConfigService) => () => config.load(), deps: [AppConfigService], multi: true }
   ],
   bootstrap: [AppComponent]
 })
