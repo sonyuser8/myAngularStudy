@@ -1,0 +1,8 @@
+<p>demo-async-validator works!</p>
+<form [formGroup]="form">
+  username:<input type="text" formControlName="username">
+</form>
+
+<br><br>
+
+ERRORS:{{form.get('username').errors | objToStr}}

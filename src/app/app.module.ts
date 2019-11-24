@@ -27,6 +27,7 @@ import { RxjsDemoComponent } from './demo/rxjs-demo/rxjs-demo.component';
 import { FormStudyComponent } from './demo/form-study/form-study.component';
 import { ObjToStrPipe } from './pipe/obj-to-str.pipe';
 import { SignupFormComponent } from './form/signup-form/signup-form.component';
+import { DemoAsyncValidatorComponent } from './component/demo/demo-async-validator/demo-async-validator.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { SignupFormComponent } from './form/signup-form/signup-form.component';
     RxjsDemoComponent,
     FormStudyComponent,
     ObjToStrPipe,
-    SignupFormComponent
+    SignupFormComponent,
+    DemoAsyncValidatorComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -65,6 +67,10 @@ import { SignupFormComponent } from './form/signup-form/signup-form.component';
       {
         path: 'formstudy',
         component: FormStudyComponent
+      },
+      {
+        path: 'demo-async',
+        component: DemoAsyncValidatorComponent
       },
       {
         path: 'signup-form',

@@ -15,8 +15,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup-form.component.css']
 })
 export class SignupFormComponent implements OnInit {
-  hostPrefix$: Observable<string>;
-
+  prefix = '';
   form = new FormGroup({
     username: new FormControl('')
   });
@@ -50,8 +49,8 @@ export class SignupFormComponent implements OnInit {
     const requestOptions: Object = {
       responseType: 'text'
     }
-    this.hostPrefix$ = this.http.get<string>('http://localhost:8080/getHostPrefixRule?location=' + el.value
-      , requestOptions);
+    // this.hostPrefix$ = this.http.get<string>('http://localhost:8080/getHostPrefixRule?location=' + el.value
+    //   , requestOptions);
     await this.http.get('http://localhost:8080/getHostPrefixRule?location=' + el.value, requestOptions).toPromise().then(
       (data: string) => {
         this.prefix = data;
@@ -64,5 +63,5 @@ export class SignupFormComponent implements OnInit {
     this.form.get('username').enable();
   }
 
-  prefix = '';
+
 }

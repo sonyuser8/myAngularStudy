@@ -1,5 +1,6 @@
-import { Observable } from 'rxjs/Observable';
-import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { map, switchMap } from 'rxjs/operators';
+import { Observable, timer } from 'rxjs';
+import { AbstractControl, ValidationErrors, ValidatorFn, FormControl, AsyncValidatorFn } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -34,23 +35,17 @@ export class CustomValidatorService {
   static shouldBeUnique(control: AbstractControl): Promise<ValidationErrors | null> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        return resolve({ shouldBeUnique: true });
-        // if (control.value === 'mosh') {
-        //   return resolve({ shouldBeUnique: true });
-        // } else {
-        //   return resolve(null);
-        // }
-      }, 2);
+        console.log('AAA');
+        if (control.value === 'mosh') {
+          return resolve({ shouldBeUnique: true });
+        } else {
+          return resolve(null);
+        }
+      }, 1000);
     });
   }
-
   // async validator
-  static serverRuleCheck(control: AbstractControl): Promise<ValidationErrors | null> {
-    const http = CustomValidatorService.httpService;
-    return http.get('http://localhost:8080/getHostPrefixRule?location=AA').toPromise().then(
-      () => {
-        return { serverRuleCheck: 'Fail Der la' };
-      }
-    );
-  }
+  // static serverRuleCheck(control: AbstractControl): Promise<ValidationErrors | null> {
+
+  // }
 }
