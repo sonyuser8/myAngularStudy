@@ -36,15 +36,16 @@
     <div [formGroupName]="i">
       <div class="form-group form-inline">
         <input formControlName="location" type="text" class="form-control" placeholder="location">
-          <div *ngIf="this.form.get('hosts').controls[i].get('location').touched" class="alert alert-danger" role="alert">
-            Show error message
-          </div>
         <input formControlName="name" type="text" class="form-control" placeholder="name">
+        <div *ngIf="this.form.get('hosts').controls[i].get('location').touched" class="alert alert-danger" role="alert">
+          Show error message
+        </div>
       </div>
     </div>
   </div>
 
   <button class="btn btn-danger" (click)="onSubmit()">Submit</button>
+  <button class="btn btn-danger" (click)="log()">LOG</button>
 </form>
 
 <ul class="nav">

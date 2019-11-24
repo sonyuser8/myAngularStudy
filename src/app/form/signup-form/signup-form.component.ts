@@ -1,3 +1,4 @@
+import { Util } from './../../util/util';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
@@ -14,22 +15,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup-form.component.css']
 })
 export class SignupFormComponent implements OnInit {
-
   hostPrefix$: Observable<string>;
-  obj;
 
   form = new FormGroup({
-    username: new FormControl('',
-      [Validators.required,
-      CustomValidatorService.hostPrefixValidator('z12f')],
-      [CustomValidatorService.shouldBeUnique,
-      CustomValidatorService.serverRuleCheck]
-    ),
+    username: new FormControl('')
   });
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-
+    let tmp = [ 'tmp1' ];
+    tmp.push('tmp2');
+    tmp.push('tmp3');
+    tmp.splice(1, 1);
+    console.log(tmp);
+    this.form.get('username').disable();
   }
 
   change() {
@@ -47,12 +46,23 @@ export class SignupFormComponent implements OnInit {
     console.log('In ttt');
   }
 
-  changeLocation(el: HTMLSelectElement) {
+  async changeLocation(el: HTMLSelectElement) {
     const requestOptions: Object = {
-      /* other options here */
       responseType: 'text'
     }
     this.hostPrefix$ = this.http.get<string>('http://localhost:8080/getHostPrefixRule?location=' + el.value
       , requestOptions);
+    await this.http.get('http://localhost:8080/getHostPrefixRule?location=' + el.value, requestOptions).toPromise().then(
+      (data: string) => {
+        this.prefix = data;
+      }
+    ).catch((error) => {
+      console.log('ERROR!' + JSON.stringify(error));
+    });
+
+    this.form.get('username').setValidators([CustomValidatorService.hostPrefixValidator(this.prefix)]);
+    this.form.get('username').enable();
   }
+
+  prefix = '';
 }

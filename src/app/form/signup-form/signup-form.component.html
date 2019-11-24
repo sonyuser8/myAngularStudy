@@ -1,24 +1,16 @@
 <p>signup-form works!</p>
 
 <form [formGroup]="form">
-  <select (change)="changeLocation($event.target)">
-    <option value='' ></option>
+  <select #tSelect (change)="changeLocation(tSelect)">
+    <option value=''></option>
     <option value='H-Site'>H-Site</option>
     <option value='T-Site'>T-Site</option>
     <option value='M-Site'>M-Site</option>
   </select>
-  <div *ngIf="hostPrefix$|async as hostPrefix else elseTmpl">
-    username:<input type="text" formControlName="username"> <br><br>
-    hostPrefix: {{hostPrefix}}
+  username:<input type="text" formControlName="username" [placeholder]="prefix">
+  <div *ngIf=" this.form.get('username').touched && form.get('username').errors">
+    HOSTNAME prefix rule violate
   </div>
-  <ng-template #elseTmpl>
-    <div>
-      username:<input type="text" disabled> <br><br>
-      hostPrefix:
-    </div>
-  </ng-template>
-
-
 </form>
 
 <br>

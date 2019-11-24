@@ -53,6 +53,11 @@ export class FormTestComponent implements OnInit {
     console.log('Form Valid?', this.form.valid);
     console.log(JSON.stringify(this.form.value));
   }
+
+  log() {
+    // let result = this.form.value;
+    console.log(this.form);
+  }
 }
 
 
