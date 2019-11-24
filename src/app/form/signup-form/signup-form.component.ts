@@ -1,6 +1,7 @@
+import { CustomValidatorService } from './../../services/custom-validator.service';
 import { UsernameValidators } from './../../validator/username.validators';
 import { Config } from './../../../interface/config';
-import { FormControl, FormArray, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormArray, FormGroup, Validators, AsyncValidator } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { config } from 'rxjs';
 
@@ -15,14 +16,16 @@ export class SignupFormComponent implements OnInit {
 
   form = new FormGroup({
     username: new FormControl('',
-      [Validators.required, Validators.minLength(5),
-        UsernameValidators.cannotContainSpace,
-        UsernameValidators.tmpUserValidator('YHJUANH')]
+      [Validators.required,
+      CustomValidatorService.hostPrefixValidator('z12f')],
+      [ CustomValidatorService.shouldBeUnique,
+        CustomValidatorService.serverRuleCheck ]
     ),
   });
   constructor() { }
 
   ngOnInit() {
+
     // this.username.vald
     // this.obj = JSON.parse('{"minlength":{"requiredLength":5,"actualLength":4},"maxlength":{"requiredLength":3,"actualLength":4}}');
     // console.log(this.obj);
