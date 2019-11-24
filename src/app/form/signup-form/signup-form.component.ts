@@ -1,9 +1,12 @@
+import { Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+
 import { CustomValidatorService } from './../../services/custom-validator.service';
 import { UsernameValidators } from './../../validator/username.validators';
 import { Config } from './../../../interface/config';
 import { FormControl, FormArray, FormGroup, Validators, AsyncValidator } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { config } from 'rxjs';
 
 @Component({
   selector: 'app-signup-form',
@@ -12,28 +15,21 @@ import { config } from 'rxjs';
 })
 export class SignupFormComponent implements OnInit {
 
+  hostPrefix$: Observable<string>;
   obj;
 
   form = new FormGroup({
     username: new FormControl('',
       [Validators.required,
       CustomValidatorService.hostPrefixValidator('z12f')],
-      [ CustomValidatorService.shouldBeUnique,
-        CustomValidatorService.serverRuleCheck ]
+      [CustomValidatorService.shouldBeUnique,
+      CustomValidatorService.serverRuleCheck]
     ),
   });
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
 
-    // this.username.vald
-    // this.obj = JSON.parse('{"minlength":{"requiredLength":5,"actualLength":4},"maxlength":{"requiredLength":3,"actualLength":4}}');
-    // console.log(this.obj);
-    // console.log(this.obj['minlength']);
-    // console.log(this.obj.minlength);
-    // this.obj.fuck = 'test';
-    // this.obj['fuck2'] = 'test2';
-    // console.log(this.obj);
   }
 
   change() {
@@ -51,4 +47,12 @@ export class SignupFormComponent implements OnInit {
     console.log('In ttt');
   }
 
+  changeLocation(el: HTMLSelectElement) {
+    const requestOptions: Object = {
+      /* other options here */
+      responseType: 'text'
+    }
+    this.hostPrefix$ = this.http.get<string>('http://localhost:8080/getHostPrefixRule?location=' + el.value
+      , requestOptions);
+  }
 }

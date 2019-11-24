@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -7,6 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CustomValidatorService {
   static httpService: HttpClient;
+
+  hostPrefixRule$: Observable<string>;
+
   constructor(http: HttpClient) {
     CustomValidatorService.httpService = http;
   }
