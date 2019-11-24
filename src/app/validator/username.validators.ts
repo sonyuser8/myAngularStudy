@@ -8,4 +8,13 @@ export class UsernameValidators {
     }
   }
 
+  static tmpUserValidator(user: string): ValidatorFn {
+    return (control: AbstractControl) => {
+      let val = control.value;
+      if (val === user){
+        return { tmpUserValidator: true };
+      }
+      return null;
+    };
+  }
 }

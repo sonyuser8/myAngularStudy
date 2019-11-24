@@ -15,14 +15,15 @@ export class SignupFormComponent implements OnInit {
 
   form = new FormGroup({
     username: new FormControl('',
-      [Validators.required, Validators.minLength(5), UsernameValidators.cannotContainSpace]
+      [Validators.required, Validators.minLength(5),
+        UsernameValidators.cannotContainSpace,
+        UsernameValidators.tmpUserValidator('YHJUANH')]
     ),
   });
   constructor() { }
 
   ngOnInit() {
-    let test: Config = { fab: '111', phase: '222' };
-    console.log(test);
+    // this.username.vald
     // this.obj = JSON.parse('{"minlength":{"requiredLength":5,"actualLength":4},"maxlength":{"requiredLength":3,"actualLength":4}}');
     // console.log(this.obj);
     // console.log(this.obj['minlength']);
