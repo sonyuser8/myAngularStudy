@@ -13,26 +13,26 @@ import { FormControl, FormArray, FormGroup, Validators, AsyncValidator } from '@
 })
 export class DemoAsyncValidatorComponent implements OnInit {
   form = new FormGroup({
-    username: new FormControl('', Validators.required, this.loginAsyncValidator('tmp'))
+    username: new FormControl('', Validators.required, this.custAsyncValidator.serverRuleCheck(''))
+    // username: new FormControl('', Validators.required, this.loginAsyncValidator('tmp'))
   });
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private custAsyncValidator: CustomValidatorService) { }
 
   ngOnInit() {
   }
 
-  loginAsyncValidator(inp: string) {
-
-    const requestOptions: object = {
-      responseType: 'text'
-    };
-    return (input: FormControl) => {
-      return this.http.get<string>('http://localhost:8080/getHostPrefixRule?location=AA', requestOptions)
-        .pipe(
-          map(res => {
-            return { loginExist: true };
-          })
-        );
-    };
-  }
+  // loginAsyncValidator(inp: string) {
+  //   const requestOptions: object = {
+  //     responseType: 'text'
+  //   };
+  //   return (input: FormControl) => {
+  //     return this.http.get<string>('http://localhost:8080/getHostPrefixRule?location=AA', requestOptions)
+  //       .pipe(
+  //         map(res => {
+  //           return { loginExist: true };
+  //         })
+  //       );
+  //   };
+  // }
 
 }

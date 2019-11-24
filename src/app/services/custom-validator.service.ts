@@ -1,4 +1,4 @@
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap, debounceTime } from 'rxjs/operators';
 import { Observable, timer } from 'rxjs';
 import { AbstractControl, ValidationErrors, ValidatorFn, FormControl, AsyncValidatorFn } from '@angular/forms';
 import { Injectable } from '@angular/core';
@@ -8,12 +8,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CustomValidatorService {
-  static httpService: HttpClient;
-
-  hostPrefixRule$: Observable<string>;
-
-  constructor(http: HttpClient) {
-    CustomValidatorService.httpService = http;
+  constructor(private http: HttpClient) {
   }
   // pure validator
   static cannotContainSpace(control: AbstractControl): ValidationErrors | null {
@@ -45,7 +40,19 @@ export class CustomValidatorService {
     });
   }
   // async validator
-  // static serverRuleCheck(control: AbstractControl): Promise<ValidationErrors | null> {
-
-  // }
+  serverRuleCheck(inp: string) {
+    const requestOptions: object = {
+      responseType: 'text'
+    };
+    return (input: FormControl) => {
+      return timer(500)
+        .pipe(
+          switchMap(() => this.http.get<string>('http://localhost:8080/getHostPrefixRule?location=AA', requestOptions)),
+          map(res => {
+            console.log(res);
+            return { loginExist: true };
+          })
+        );
+    };
+  }
 }
